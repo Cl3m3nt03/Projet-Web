@@ -1,0 +1,159 @@
+p{
+	color: #FFFF;
+	font-size:x-large;
+}
+
+*,*:after,*:before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+}
+
+.wrapper_outer{
+	height: 100vh;
+	overflow: hidden;
+}
+.wrapper{
+	height: 100%;
+	overflow-x: hidden;
+
+	perspective: 1px;
+}
+
+.parallax_section{
+	box-sizing: border-box;
+	min-height: 100%;
+	padding: 10vh 10vh;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+
+	overflow: hidden;
+
+	transform-style: preserve-3d;
+}
+.parallax_bg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -1;
+	height: 1000px;
+	
+
+	transform: translate3d(0,0,-1px) scale(2);
+}
+
+.slider-container{
+	position: relative;
+	bottom: 350px;
+	left: -30px;
+}
+
+.slider-1 {
+	max-width: 600px;
+	margin: 100px auto;
+	overflow: hidden;
+  
+  }
+  .slider-1 .slider {
+	animation: slider-1 12s infinite ease-in-out;
+	display: flex;
+  
+
+  }
+  .slider-1 p {
+	flex-shrink: 0;
+	padding: 72px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 45px;
+  }
+  
+  
+  
+  @keyframes slider-1 {
+	0%,
+	20% {
+	  transform: translateX(0);
+	}
+	25%,
+	45% {
+	  transform: translateX(-100%);
+	}
+	50%,
+	70% {
+	  transform: translateX(-200%);
+	}
+	75%,
+	95% {
+	  transform: translateX(-300%);
+	}
+	100% {
+	  transform: translateX(-400%);
+	}
+  } 
+  
+.bouton1 {
+    background-color: rgb(197, 189, 178);
+    border: none;
+    color: yellow;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 2rem;
+    }
+    
+    
+.bouton1:hover {
+  opacity : 5.0;
+  background-color: rgb(99, 99, 121);
+}
+
+.bouton2 {
+    background-color: rgb(197, 189, 178);
+    border: none;
+    color: yellow;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 2rem;
+    }
+    
+    
+.bouton2:hover {
+  opacity : 5.0;
+  background-color: rgb(99, 99, 121);
+}
+
+.bouton3 {
+    background-color: rgb(197, 189, 178);
+    border: none;
+    color: yellow;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 2rem;
+    }
+    
+    
+.bouton3:hover {
+  opacity : 5.0;
+  background-color: rgb(99, 99, 121);
+}
