@@ -1,44 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="saga.css" rel="stylesheet">
+    <title>OnePiece</title>
+    <link rel="stylesheet" href="saga.css">
 </head>
 <body>
-    <div class="wrapper_outer">
-        <div class="wrapper">
+   <header>
+        <label>
 
-            <section class="parallax_section">
-            <!-- <div class="navbar">
-                <a class="bouton1"><strong>Acceuil</strong></a>
-                <a class="bouton2" href="#page2"><strong>Les Sagas</strong></a>
-                <a class="bouton3"><strong>Jeu</strong></a>   
-            </div> -->
-                <div class="parallax_bg" style="background-image: url(images/bck1.png);"></div>
-                <div class="slider-container slider-1">
-                    <div class="slider">
-                      <p>Bienvenue</p>
-                      <p>L'aventure commence !</p>
-                      <p>Site Béta</p>
-                      <p>Bienvenue</p>
-                    </div>
-                  </div>
-
-            </section>
-            <section class="parallax_section">
-                <div class="parallax_bg" style="background-image: url(images/bck2.jpg);"></div>
-                <!-- <a id="page2"></a> -->
-
-
-            </section>	
+            <input id="burger" type="checkbox">
+            <div id="le_test"></div>
+            <div id="burger-container">
+                <label>
+                    <div class="burger-select"><a href="index.html">Accueil</a></div>
+                    <div class="burger-select"><a href="#main">Les Sagas</a></div>
+                    <div class="burger-select"><a href="">Jeu</a></div>
+                </label>
+            </div>
+        </label>
 
         </div>
-   
-    </div>
+      </div>  
+   </header> 
+   <div id="background">
+    <div class="slider-container slider-1">
+        <div class="slider">
+          <p>Bienvenue</p>
+          <p>L'aventure commence !</p>
+          <p>Site Béta</p>
+          <p>Bienvenue</p>
+        </div>
+      </div>  
+   </div>
 
 
 
+<div id="main">
+    <!-- 768*432 -->
+    <div class="carousel-couv">
+		<div class="carousel">
+			<img id="slide-1" src="images/saga/saga1.png" alt="" />
+			<img id="slide-2" src="images/saga/saga2.png" alt="" />
+			<img id="slide-3" src="images/saga/saga3.png" alt="" />
+            <img id="slide-4" src="images/saga/saga4.png" alt="" />
+            <img id="slide-5" src="images/saga/saga5.png" alt="" />
+            <img id="slide-6" src="images/saga/saga6.png" alt="" />
+		</div>
+		<div class="carousel-lav">
+			<a href="#slide-1"></a>
+			<a href="#slide-2"></a>
+			<a href="#slide-3"></a>
+            <a href="#slide-4"></a>
+            <a href="#slide-5"></a>
+            <a href="#slide-6"></a>
+		</div>
+	</div>
+</div>
+
+ <script src="js/app.js"></script>
 </body>
 </html>

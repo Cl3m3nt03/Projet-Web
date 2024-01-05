@@ -1,76 +1,103 @@
-p{
-	color: #FFFF;
-	font-size:x-large;
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+* {
+    margin: 0;
+    padding: 0;
 }
 
-*,*:after,*:before{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-}
-body{
-	margin: 0;
+body
+{
+ font-family: 'Bungee';
+ background-color: #f8fafc;   
 }
 
-.wrapper_outer{
-	height: 100vh;
-	overflow: hidden;
-}
-.wrapper{
-	height: 100%;
-	overflow-x: hidden;
-
-	perspective: 1px;
+#background {
+    height: 100vh;
+    width: 100%;
+    background-image: url("images/bck1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.parallax_section{
-	box-sizing: border-box;
-	min-height: 100%;
-	padding: 10vh 10vh;
-	position: relative;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 1;
-
-	overflow: hidden;
-
-	transform-style: preserve-3d;
+#burger {
+    visibility: hidden;
+    position: absolute;
+    
 }
-.parallax_bg{
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background-size: cover;
-	background-position: center center;
-	z-index: -1;
-	height: 1000px;
-	
 
-	transform: translate3d(0,0,-1px) scale(2);
+#le_test {
+    position: absolute;
+    background-image: url("images/menu_burger_icon_177188.png");
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}
+
+#burger:checked ~ #burger-container {
+    opacity: 1;
+    visibility: visible;
+    top: 100px; 
+}
+
+#burger-container {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transition: top 0.5s, opacity 0.5s, visibility 0.5s;
+}
+
+.burger-select {
+    border: 0.5px solid rgb(255, 255, 255);
+    /* background-color: white; */
+}
+.burger-select > a {
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+.burger-select:hover {
+    background-color: lightgray;
+}
+
+
+h1{
+    font-size: 150px;
+    text-align: center;
+    color: lightcoral;
+}
+
+img 
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+#main 
+{
+    height: 100vh;
+    width: 100%;
+    background-image: url("images/bck2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .slider-container{
 	position: relative;
-	bottom: 350px;
-	left: -30px;
+  top: 100px;
+  left: 640px;
 }
 
 .slider-1 {
 	max-width: 600px;
-	margin: 100px auto;
 	overflow: hidden;
   
   }
   .slider-1 .slider {
-	animation: slider-1 12s infinite ease-in-out;
+	animation: slider-1 10s infinite ease-in-out;
 	display: flex;
   
-
   }
   .slider-1 p {
 	flex-shrink: 0;
@@ -78,8 +105,8 @@ body{
 	width: 100%;
 	text-align: center;
 	font-size: 45px;
+	color: #f1f1f1;
   }
-  
   
   
   @keyframes slider-1 {
@@ -104,56 +131,57 @@ body{
 	}
   } 
   
-.bouton1 {
-    background-color: rgb(197, 189, 178);
-    border: none;
-    color: yellow;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    border-radius: 2rem;
-    }
-    
-    
-.bouton1:hover {
-  opacity : 5.0;
-  background-color: rgb(99, 99, 121);
-}
+  .carousel-couv {
+    position: relative;
+    max-width: 60rem;
+    margin: 0 auto;
+      top: 300px;
+  }
+  
+  .carousel {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  
 
-.bouton2 {
-    background-color: rgb(197, 189, 178);
-    border: none;
-    color: yellow;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    border-radius: 2rem;
-    }
-    
-    
-.bouton2:hover {
-  opacity : 5.0;
-  background-color: rgb(99, 99, 121);
-}
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .carousel img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+  }
+  
+  .carousel-lav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .carousel-lav a {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #000000;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+  }
+  
+  .carousel-lav a:hover {
+    opacity: 1;
+  }
 
-.bouton3 {
-    background-color: rgb(197, 189, 178);
-    border: none;
-    color: yellow;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    border-radius: 2rem;
-    }
-    
-    
-.bouton3:hover {
-  opacity : 5.0;
-  background-color: rgb(99, 99, 121);
-}
+  
