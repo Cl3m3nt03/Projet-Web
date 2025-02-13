@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Burger Clicker</title>
+        <style>
+
+            /* Game styling */
+            header {
+                background-color: #ffffff2e;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.5rem 7rem;
+                border-bottom: 2px solid #5e3d0c;
+                color:#5e3d0c;
+            }
+
+            header h1 {
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            header ul {
+                display: flex;
+                gap: 2rem;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            header a {
+                color: #5e3d0c;
+                text-decoration: none;
+                font-size: 1.4rem;
+            }
+
+            body {
+                text-align: center;
+                font-family: "Pixelify Sans";
+                background-image: url('assets/images/caca.png');
+                margin-top: 50px;
+                margin: 0;
+            }
+
+            h2 {
+                font-size: 32px;
+                color: #5e3d0c;
+            }
+
+            #cookie {
+                width: 15rem;
+                height: 15rem;
+                background-size: auto;
+                background-image: url('assets/images/Burgerpants_face_4.webp');
+                margin-right: auto;
+                margin-left: auto;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: transform 0.1s, box-shadow 0.1s;
+            }
+
+            #cookie:active {
+                transform: scale(0.95);
+            }
+
+            #score {
+                font-size: 28px;
+                font-weight: bold;
+                margin: 20px 0;
+                color: #5e3d0c;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 18px;
+                cursor: pointer;
+                background-color: #8b4513;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                margin-top: 20px;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #a0522d;
+            }
+
+            #boutmenu {
+                visibility: hidden;
+                position: absolute;
+
+            }
+
+            #le_test {
+                background-image: url("assets/images/menu.png");
+                background-size: contain;
+                width: 50px;
+                height: 50px;
+                display: none;
+
+            }
+
+            #boutmenu:checked ~ #boutmenu-container {
+                opacity: 1;
+                visibility: visible;
+                top: 100px; 
+            }
+
+            #boutmenu-container {
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                left: 60px;
+                transition: top 0.9s, opacity 0.5s, visibility 0.5s;
+            }
+
+            .boutmenu-select {
+                border: 2px solid #feecac;
+                background-color: #701e4c;
+                /* background-color: white; */
+            }
+            .boutmenu-select > a {
+                padding: 15px;
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+                font-size: 40px;
+
+            }
+
+            .boutmenu-select:hover {
+                background-color: lightgray;
+                opacity: 0.5;
+            }
+
+            #menuslide{
+                display: none;
+                display: flex;
+                justify-content: center;
+            }
+
+            @media (max-width: 768px) {
+                footer {
+                    padding: 20px 10px;
+                }
+
+                footer h2 {
+                    font-size: 1.5em;
+                }
+
+                footer p {
+                    font-size: 1em;
+                }
+
+                footer a {
+                    padding: 8px 15px;
+                }
+
+                header ul{
+                    display: none;
+                }
+
+                header h1{
+                    display: none;
+                }
+
+                #menuslide{
+                    display: block !important;
+                }
+                #le_test{
+                    display: block;
+                }
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    </head>
+    <header>
+        <label id="menuslide">
+            <input id="boutmenu" type="checkbox">
+            <div id="le_test"></div>
+            <div id="boutmenu-container">
+                <label>
+                    <div class="boutmenu-select"><a href="index.php">Accueil</a></div>
+                    <div class="boutmenu-select"><a href="contact.php">Contact</a></div>
+                    <div class="boutmenu-select"><a href="memory.php">Jeu</a></div>
+                </label>
+            </div>
+        </label>
+
+        <h1>The Power of memory</h1>
+        <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="memory.php">Game</a></li>
+        </ul>
+        <a href="connexion.php"><img src="assets/images/logoLOg.png" alt="log" height="80"/></a>
+
+    </header>
+    <body>
+        <h2>Burger Clicker</h2>
+        <p>Score: <span id="score">0</span></p>
+        <div id="cookie"></div>
+        <br><br>
+        <button id="reset-button">Reset Score</button>
+
+        <script>
+            let score = 0;
+
+            // Tableau d'images
+            const images = [
+                'assets/images/Burgerpants_face_1.png',
+                'assets/images/Burgerpants_face_smoking.webp',
+                'assets/images/Burgerpants_face_2.webp',
+                'assets/images/Burgerpants_face_3.webp',
+                'assets/images/Burgerpants_face_4.webp'
+            ];
+
+            let currentImageIndex = 0;
+
+            // Récupère les éléments HTML
+            const cookie = document.getElementById('cookie');
+            const scoreDisplay = document.getElementById('score');
+            const resetButton = document.getElementById('reset-button');
+
+            // Fonction pour changer l'image
+            function changeImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length; // Passe à l'image suivante
+                cookie.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            }
+
+            // Quand on clique sur le "cookie" (l'image)
+            cookie.addEventListener('click', () => {
+                score++;
+                scoreDisplay.textContent = score;
+                changeImage(); // Change l'image à chaque clic
+            });
+
+            // Remise à zéro du score
+            resetButton.addEventListener('click', () => {
+                score = 0;
+                scoreDisplay.textContent = score;
+            });
+        </script>
+        <audio autoplay loop>
+            <source src="assets/musique/Deltarune Chapter 2 OST 41 - Dialtone.mp3" type="audio/mpeg">
+            <audio autoplay loop volume="0.5">
+        </audio>
+        
+    </body>
+
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrôle Musique</title>
+    <style>
+        /* Bouton principal visible en bas à gauche */
+        #musicButton {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #910100;
+            box-shadow: 1.5px 1.5px 1px rgba(0, 0, 0, 0.4),
+                        3px 3px 0 #ffc82b,
+                        6px 6px 0 #490000,
+                        9px 9px 8px rgba(0, 0, 0, 0.777),
+                        inset 0 0 .70em #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.2s ease;
+        }
+
+        #musicButton:hover{
+            transform: translateY(-5px);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4),
+                        5px 5px 0 #ffc82b,
+                        10px 10px 0 #490000,
+                        15px 15px 8px rgba(0, 0, 0, 0.777),
+                        inset 0 0 .70em #000000;
+            background-color: #910100; 
+        }
+
+        #musicButton img{
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Fenêtre pop-up pour les contrôles de musique */
+        #musicControlPopup {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 250px;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 9999;
+        }
+
+        #musicControlPopup img{
+            width: 20px;
+            height: 20px;
+        }
+
+        #trackTitleContainer {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%; /* Limite la largeur au conteneur popup */
+        box-sizing: border-box;
+        border-bottom: 1px solid #444;
+        padding: 5px 0;
+        }
+
+        /* Flexbox pour aligner les boutons horizontalement */
+        #musicControlPopup .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Style pour les boutons de contrôle */
+        #musicControlPopup button {
+            width: 30%;
+            padding: 5px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #trackTitle{
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Bouton de musique en bas à gauche -->
+<button id="musicButton" onclick="togglePopup()">
+    <img src="assets/images/note-musique.png" alt="Musique">
+</button>
+
+<!-- Fenêtre pop-up pour les contrôles de musique -->
+<div id="musicControlPopup">
+    <div id="trackTitle">Titre de la musique</div>
+    <div class="buttons">
+        <button onclick="prevTrack()">
+            <img src="assets/images/prev-icon.png" alt="Précédent">
+        </button>
+        <button id="playPauseButton" onclick="togglePlay()">
+            <img src="assets/images/play-icon.png" alt="Play/Pause">
+        </button>
+        <button onclick="nextTrack()">
+            <img src="assets/images/next-icon.png" alt="Suivant">
+        </button>
+    </div>
+</div>
+
+<!-- Audio player -->
+<audio id="audioPlayer" autoplay loop>
+    <source src="assets/musique/Undertale OST 054 - Hotel.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Variables et gestion du player audio
+    const musicButton = document.getElementById("musicButton");
+    const musicControlPopup = document.getElementById("musicControlPopup");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const playPauseButton = document.getElementById("playPauseButton");
+    const trackTitle = document.getElementById("trackTitle");
+    let isPlaying = true;
+
+    // Playlist (exemple)
+    const playlist = [
+        {src: "assets/musique/Undertale OST 054 - Hotel.mp3", title: "Undertale OST 054 - Hotel"},
+        {src: "assets/musique/Puzzles.mp3", title: "Puzzles"},
+        {src: "assets/musique/Deltarune Chapter 2 OST 41 - Dialtone.mp3", title: "Deltarune Chapter 2 OST 41"}
+    ];
+    let currentTrackIndex = 0;
+
+    function updateTrackTitle() {
+        trackTitle.textContent = playlist[currentTrackIndex].title;
+    }
+    updateTrackTitle();
+
+    // Fonction pour afficher/masquer la pop-up
+    function togglePopup() {
+        musicControlPopup.style.display = musicControlPopup.style.display === "none" ? "block" : "none";
+    }
+
+
+    function togglePlay() {
+        if (isPlaying) {
+            audioPlayer.pause();
+            playPauseButton.innerHTML = '<img src="assets/images/play-icon.png" alt="Play">';
+        } else {
+            audioPlayer.play();
+            playPauseButton.innerHTML = '<img src="assets/images/pause-icon.png" alt="Pause">';
+        }
+        isPlaying = !isPlaying;
+    }
+
+    // Fonction pour passer à la musique suivante
+    function nextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        audioPlayer.src = playlist[currentTrackIndex];
+        updateTrackTitle();
+        audioPlayer.play();
+        playPauseButton.innerHTML = '<img src="assets/images/pause-icon.png" alt="Pause">';
+        isPlaying = true;
+    }
+
+    // Fonction pour revenir à la musique précédente
+    function prevTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        audioPlayer.src = playlist[currentTrackIndex];
+        updateTrackTitle();
+        audioPlayer.play();
+        playPauseButton.innerHTML = '<img src="assets/images/pause-icon.png" alt="Pause">';
+        isPlaying = true;
+    }
+</script>
+
+</body>
+</html>
+
+
+
+

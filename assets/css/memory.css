@@ -1,0 +1,452 @@
+CSS /* Style de base pour toute la page */
+* {
+    font-family: "Pixelify Sans";
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/dgcbvb7-f4d4c129-41a5-42bf-9723-f786016d5f12_1.gif);
+    font-family: "Pixelify Sans";
+    margin: 0;
+    padding: 0;
+    transition: all .3s ease;
+    background-size: cover;
+}
+
+
+.titlecarousel {
+    color:#feecac;
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.configurationjeu {
+    font-family: "Pixelify Sans";
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.menu-config {
+    font-family: "Pixelify Sans";
+    background-color: #a01e0b;
+    width: 15rem;
+    padding: 15px;
+    border-radius: 15px;
+    border: 5px solid #ff5c1e;
+    text-align: center;
+}
+
+#game-pers, #difficulty-game, #validebut {
+    background-color: #701e4c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+#boutmenu {
+    font-family: "Pixelify Sans";
+    visibility: hidden;
+    position: absolute;
+}
+
+#le_test {
+    background-image: url("../images/menu.png");
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+#boutmenu:checked ~ #boutmenu-container {
+    opacity: 1;
+    visibility: visible;
+    top: 100px;
+}
+
+#boutmenu-container {
+    font-family: "Pixelify Sans";
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 60px;
+    transition: top 0.9s, opacity 0.5s, visibility 0.5s;
+}
+
+.boutmenu-select {
+    border: 2px solid #feecac;
+    background-color: #701e4c;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.boutmenu-select > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.boutmenu-select:hover {
+    background-color: lightgray;
+    opacity: 0.5;
+}
+
+.grid-4x4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.grid-6x6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+
+.grid-8x8 {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+
+.theme-orange {
+    width: 30%;
+    height: 30%;
+    padding-top: 40% ; 
+    background-color: #a01e0b;
+    border: 5px solid #ff5c1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-bleu {
+    width: 100%;
+    padding-top: 40% ; 
+    background-color: #08296d;
+    border: 5px solid #621eff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-vert {
+    width: 100%;
+    padding-top: 40% ; 
+    background-color: #09600d;
+    border: 5px solid #39d61a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.case_game:hover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+    transform: scale(1.05);
+}
+
+.case_game img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.hidden {
+    display: none;
+}
+
+.case_game{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+/*-----------------------Mascotte----------------------------*/
+
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%); 
+        opacity: 0;
+    }
+}
+
+
+.mascotte{
+
+    width: 20%;
+    padding: 0rem 40rem ; 
+    position: fixed;
+    display: none;
+    margin-bottom: 10rem;
+    margin-top: -50rem;
+    animation: slideIn 1s ease forwards; 
+
+}
+
+.mascotte-slide-out {
+    animation: slideOut 1s ease forwards; 
+    
+}
+
+.bulle{
+
+    width: 20%;
+    padding: 0rem 30rem ; 
+    position: fixed;
+    margin-top: -10rem;
+    display: none;
+    margin-top: -66rem;  
+
+}
+
+.bulle2{
+
+    width: 20%;
+    padding: 0rem 30rem ; 
+    position: fixed;
+    margin-top: -10rem;
+    display: none;
+    margin-top: -66rem;  
+
+}
+
+.bulle3{
+
+    width: 20%;
+    padding: 0rem 30rem ; 
+    position: fixed;
+    margin-top: -10rem;
+    display: none;
+    margin-top: -66rem;  
+
+}
+
+.bulle4{
+
+    width: 20%;
+    padding: 0rem 30rem ; 
+    position: fixed;
+    margin-top: -10rem;
+    animation: slideOut 1s ease forwards; 
+    display: none;
+    margin-top: -66rem;  
+
+}
+
+
+
+.dialogue {
+    font-family: "Pixelify Sans";
+    color : #000000;
+    padding: 0rem 34rem ;
+    font-size: 1.5rem;
+    position: fixed;
+    animation: slideIn 1s ease forwards; 
+    display: none;
+    margin-top: -60rem;
+   
+    
+
+}
+
+.dialogue2 {
+    font-family: "Pixelify Sans";
+    color : #000000;
+    padding: 0rem 64rem ;
+    margin-top: -2rem;
+    font-size: 1.5rem;
+    position: fixed;
+    display: none;
+    margin-top: -60rem;
+    margin-left: -30rem;
+    
+
+}
+
+.dialogue3 {
+    font-family: "Pixelify Sans";
+    color : #000000;
+    padding: 0rem 64rem ;  
+    font-size: 1.5rem;
+    position: fixed;
+    display: none;
+    margin-top: -60rem;
+    margin-left: -30rem;
+    
+
+}
+
+.dialogue4 {
+    font-family: "Pixelify Sans";
+    color : #000000;
+    padding: 0rem 68rem ;
+    font-size: 1.5rem;
+    position: fixed;
+    display: none;
+    margin-top: -60rem;
+    margin-left: -32rem;
+    animation: slideOut 1s ease forwards; 
+    
+
+}
+
+.mascotte2{
+
+    width: 20%;
+    padding: 0rem 40rem ; 
+    position: fixed;
+    
+    display: none;
+    margin-bottom: 10rem;
+    margin-top: -50rem;
+
+}
+
+.mascotte3 {
+    width: 35%;
+    padding: 0rem 28rem ; 
+    position: fixed;
+    
+    display: none;
+    
+    margin-top: -50rem;
+
+
+}
+
+.mascotte4 {
+    width: 15%;
+    padding: 0rem 40rem ; 
+    position: fixed;
+    animation: slideOut 1s ease forwards; 
+    display: none;
+    margin-top: -50rem;
+
+
+}
+
+
+
+
+/*-----------------------Mascotte----------------------------*/
+
+
+
+.confetti {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.section_grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.game-grid {
+    display: grid;
+    gap: 2px;
+    margin: 5px auto;
+    max-width: 600px;
+}
+
+.case_game {
+    width: 80px;
+    height: 80px;
+}
+
+@media (max-width: 768px) {
+    .game-grid {
+        max-width: 300px;
+        gap: 8px;
+    }
+    .game-grid.grid-4x4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .game-grid.grid-6x6 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .game-grid.grid-8x8 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .game-grid {
+        max-width: 100%;
+        gap: 4px;
+    }
+    .game-grid.grid-4x4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .game-grid.grid-6x6 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .game-grid.grid-8x8 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .case_game {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .menu-config {
+        width: 12rem;
+    }
+
+    .titlecarousel {
+        font-size: 2.5rem;
+    }
+
+    .game-grid {
+        max-width: 300px;
+        gap: 8px;
+    }
+}
+

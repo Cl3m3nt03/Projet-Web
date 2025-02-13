@@ -1,0 +1,198 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/ping5.gif'); /* Utilisation du GIF en arrière-plan */
+    
+    background-position: center;
+    background-color: #190a48;
+    height: 100vh; /* S'assure que le fond couvre toute la hauteur de la page */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    text-shadow: 2px 2px 0 #000000,
+                3px 3px 4px rgba(0, 0, 0, 0.777);
+}
+
+#main {
+    padding: 0 40px;
+}
+
+/* Titre Connexion tout en haut */
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #feecac;
+    text-align: center;
+}
+
+/* Style des labels */
+label {
+    font-size: 1.1em;
+    color: #fbfbfb;
+}
+
+/* Style des inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #f15e9c;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #4d003d;
+    color: #ffffff;
+   
+}
+label {
+    font-size: 1.1em;
+    color: #feecac;
+}
+
+*{
+    font-family: "Pixelify Sans";
+
+}
+
+a {
+    color: #feecac;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+input{
+    box-shadow: 2px 2px 0 #000000,
+                3px 3px 4px rgba(0, 0, 0, 0.777);
+}
+
+
+/* Placer les inputs et le bouton en bas de la page */
+form {
+    background-color: rgba(112, 30, 76, 0.9); 
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;    
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+
+    margin: 200px auto 85px auto;
+}
+
+
+/* Ajoute de la réactivité pour le footer sur les petits écrans */
+
+
+
+/* CSS */
+.button-73 {
+  appearance: none;
+  background-color: #ac1c57; 
+  border-radius: 40em;
+  border-style: none;
+  box-shadow:  #b64b78  0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,sans-serif;
+  font-size: 1 rem;
+  font-weight: 600;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Pixelify Sans', sans-serif;
+  box-shadow: 2px 2px 0 #000000,
+                3px 3px 4px rgba(0, 0, 0, 0.777);
+}
+
+.button-73:hover {
+  background-color:#e83e88db ;
+  box-shadow: #f4b0f5 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.button-73:active {
+  transform: scale(1.025);
+}
+
+#boutmenu {
+    visibility: hidden;
+    position: absolute;
+
+}
+
+#le_test {
+    background-image: url("../images/menu.png");
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    display: none;
+
+}
+
+#boutmenu:checked ~ #boutmenu-container {
+    opacity: 1;
+    visibility: visible;
+    top: 100px; 
+}
+
+#boutmenu-container {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 60px;
+    transition: top 0.9s, opacity 0.5s, visibility 0.5s;
+}
+
+.boutmenu-select {
+    border: 2px solid #feecac;
+    background-color: #701e4c;
+    /* background-color: white; */
+}
+.boutmenu-select > a {
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+
+}
+
+.boutmenu-select:hover {
+    background-color: lightgray;
+    opacity: 0.5;
+}
+
+#menuslide{
+    display: none;
+    display: flex;
+    justify-content: center;
+}
+
+.passwordbar{
+    border: 2px solid #e83e88db;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+
+.progessbar{
+    background-color:#feecac1f;
+    border-radius: 1rem;
+    padding: 0.2rem;
+
+}
